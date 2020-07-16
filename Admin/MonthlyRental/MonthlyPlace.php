@@ -44,7 +44,7 @@
     function fetchLoc(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT * FROM Location;");
+      $query = mysqli_query($conn, "SELECT * FROM location;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -57,7 +57,7 @@
     function fetchType(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM MonthlyType;");
+      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM monthlytype;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -442,7 +442,7 @@
                   </table>
                   <?php 
                     $perpage = 10;
-                    $sql = "SELECT * FROM MonthlyPlace WHERE MTID = $pType;";
+                    $sql = "SELECT * FROM monthlyplace WHERE MTID = $pType;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

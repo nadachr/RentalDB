@@ -12,7 +12,7 @@
 
         $user = $_SESSION['name'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vLogin WHERE AccName = '$user';");
+        $query = mysqli_query($conn, "SELECT * FROM vlogin WHERE AccName = '$user';");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -31,7 +31,7 @@
             $offerid = 0;
           }
        
-        $query = mysqli_query($conn, "SELECT * FROM vOfferDetail WHERE MOfferID = $offerid");
+        $query = mysqli_query($conn, "SELECT * FROM vofferdetail WHERE MOfferID = $offerid");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -44,7 +44,7 @@
     function fetchBank(){
         include "connrent.php";
        
-        $query = mysqli_query($conn, "SELECT * FROM Banks");
+        $query = mysqli_query($conn, "SELECT * FROM banks");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){

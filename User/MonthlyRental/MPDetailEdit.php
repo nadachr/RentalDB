@@ -13,7 +13,7 @@
 
         $MPlace = $_GET['pedit'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vMPlaceDetail  WHERE MPlaceID = $MPlace");
+        $query = mysqli_query($conn, "SELECT * FROM vmplacedetail  WHERE MPlaceID = $MPlace");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -26,7 +26,7 @@
     function fetchLoc(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT * FROM Location;");
+        $query = mysqli_query($conn, "SELECT * FROM location;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -39,7 +39,7 @@
     function fetchType(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT MTID, MTTName FROM MonthlyType;");
+        $query = mysqli_query($conn, "SELECT MTID, MTTName FROM monthlytype;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -66,7 +66,7 @@
 
         $img = $_FILES['img']['name'];
         
-        $sql = "UPDATE MonthlyPlace SET MPlaceImg = '$img' WHERE MPlaceID = $MPlace";
+        $sql = "UPDATE monthlyplace SET MPlaceImg = '$img' WHERE MPlaceID = $MPlace";
         mysqli_query($conn, $sql);
 
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){

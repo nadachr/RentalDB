@@ -25,7 +25,7 @@
     function fetchLoc(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT * FROM Location;");
+        $query = mysqli_query($conn, "SELECT * FROM location;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -38,7 +38,7 @@
     function fetchType(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT DTID, DTTName FROM DailyType;");
+        $query = mysqli_query($conn, "SELECT DTID, DTTName FROM dailytype;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -66,7 +66,7 @@
 
         $img = $_FILES['img']['name'];
         
-        $sql = "UPDATE DailyPlace SET DPlaceImg = '$img' WHERE DPlaceID = $DPlace";
+        $sql = "UPDATE dailyplace SET DPlaceImg = '$img' WHERE DPlaceID = $DPlace";
         mysqli_query($conn, $sql);
 
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){

@@ -17,7 +17,7 @@
       $accname = '';
     }
     include "connrent.php";
-    $query = mysqli_query($conn, "SELECT AccNo, AccName FROM vOfferDetail WHERE MOfferStatus = 0 AND AccEName = '$accname';");
+    $query = mysqli_query($conn, "SELECT AccNo, AccName FROM vofferdetail WHERE MOfferStatus = 0 AND AccEName = '$accname';");
     $resultArray = array();
 
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -69,7 +69,7 @@
       function fetchRent($AccNo){
         include "connrent.php";
 
-        $query = mysqli_query($conn, "SELECT * FROM vDRent WHERE AccNo = $AccNo;");
+        $query = mysqli_query($conn, "SELECT * FROM vdrent WHERE AccNo = $AccNo;");
         $resultArray = array();
 
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){

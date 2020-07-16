@@ -13,7 +13,7 @@
 
         $accno = $_GET['show'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vAccount  WHERE AccNo = $accno");
+        $query = mysqli_query($conn, "SELECT * FROM vaccount  WHERE AccNo = $accno");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -366,7 +366,7 @@
 
                 <?php if($row['AccStatus']==0){ ?>
                 <div class="mt-4">
-                  <a class="btn btn-success btn-lg" data-slide="true" href="userSent.php?show=<?php echo $accno?>&accept=<?php echo $accno?>" role="button" onclick="return confirm('ยืนยันการตอบรับ');">
+                  <a class="btn btn-success btn-lg" data-slide="true" href="userRoleEdit.php?show=<?php echo $accno?>&accept=<?php echo $accno?>" role="button" onclick="return confirm('ยืนยันการตอบรับ');">
                       <i class="fas fa-plus-circle fa-lg mr-2"></i> 
                       ตอบรับการลงทะเบียน    
                   </a>
@@ -380,7 +380,7 @@
                 </div>
 
                 <div class="mt-4 product-share">
-                  <a class="btn btn-danger" data-slide="true" href="MPlaceDetail.php?show=<?php echo $MPlace?>" role="button">
+                  <a class="btn btn-danger" data-slide="true" href="userRoleEdit.php?bann=<?php echo $accno?>" role="button">
                     <i class="fas fa-times-circle"></i>
                       แบนผู้ใช้นี้    
                   </a>

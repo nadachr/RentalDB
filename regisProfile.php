@@ -5,7 +5,7 @@
 
   include "connrent.php";
 
-  $query = "SELECT PreID, PreDisTh, PreDisEn FROM Prefix;";
+  $query = "SELECT PreID, PreDisTh, PreDisEn FROM prefix;";
   $mysql = mysqli_query($conn, $query);
 
   echo "<script>alert('กรอกข้อมูลส่วนตัว');</script>";
@@ -132,7 +132,7 @@
         </div>
         <div class="form-group">
           <div class="input-group">
-            <input type="tel" class="form-control" name="accid" pattern="[0-9]{1}-[0-9]{4}-[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{1}"data-mask placeholder="รหัสประจำตัวประชาชน" require>
+            <input type="text" class="form-control" name="accid" data-mask placeholder="รหัสประจำตัวประชาชน 13 หลัก" require>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-id-card"></span>

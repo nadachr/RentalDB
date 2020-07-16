@@ -61,7 +61,7 @@
       $start = (($p-1) * $perpage);
       #--------------------------
 
-      $query = mysqli_query($conn, "SELECT * FROM Equipment LIMIT $start, $perpage;");
+      $query = mysqli_query($conn, "SELECT * FROM equipment LIMIT $start, $perpage;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

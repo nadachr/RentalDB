@@ -4,7 +4,7 @@
     if(isset($_GET['accept'])){
         $AccNo = $_GET['accept'];
 
-        $query = mysqli_query($conn, "UPDATE Account SET AccStatus = 1 WHERE AccNo = $AccNo;");
+        $query = mysqli_query($conn, "UPDATE account SET AccStatus = 1 WHERE AccNo = $AccNo;");
         #echo $offer;
     }
 
@@ -12,8 +12,8 @@
         $offer = $_GET['reject'];
         $AccNo = $_GET['accno'];
 
-        $query = mysqli_query($conn, "UPDATE MonthlyOffer SET MOfferResult = 'rejected' WHERE MOfferID = $offer;");
-        $query2 = mysqli_query($conn, "INSERT INTO MonthlyRental(MOfferID) VALUE ($offer);");
+        $query = mysqli_query($conn, "UPDATE monthlyoffer SET MOfferResult = 'rejected' WHERE MOfferID = $offer;");
+        $query2 = mysqli_query($conn, "INSERT INTO monthlyrental(MOfferID) VALUE ($offer);");
         #echo $offer;
         header("location:MRentDetail.php?accno=$AccNo&offer=$offer");
     }
@@ -36,7 +36,7 @@
 
         $accno = $_GET['show'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vAccount  WHERE AccNo = $accno");
+        $query = mysqli_query($conn, "SELECT * FROM vaccount  WHERE AccNo = $accno");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -49,7 +49,7 @@
     function fetchRole(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT * FROM Role");
+        $query = mysqli_query($conn, "SELECT * FROM role");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){

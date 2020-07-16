@@ -12,7 +12,7 @@
 
       $rent = $_GET['rent'];
 
-      $query = mysqli_query($conn, "SELECT * FROM MonthlyRental WHERE MRentID = $rent");
+      $query = mysqli_query($conn, "SELECT * FROM monthlyrental WHERE MRentID = $rent");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -25,7 +25,7 @@
     function fetchMP($offerid){
         include "connrent.php";
 
-        $query = mysqli_query($conn, "SELECT * FROM vOfferDetail  WHERE MOfferID = $offerid");
+        $query = mysqli_query($conn, "SELECT * FROM vofferdetail  WHERE MOfferID = $offerid");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -365,7 +365,7 @@
             <div class="col-12 col-sm-6">
                 <h4><i class="fas fa-image"></i> หลักฐานการชำระค่าเช่า</h4>
               <div class="col-12">
-                <img src="MonthlyRental/img/<?php echo $envi;?>" class="product-image" alt="Product Image">
+                <img src="http://localhost/rentaldb/user/monthlyrental/img/<?php echo $envi;?>" class="product-image" alt="Product Image">
               </div>
             </div>
             <div class="col-12 col-sm-6">

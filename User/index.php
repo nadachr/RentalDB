@@ -69,7 +69,7 @@
         $accname = '';
       }
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT AccNo, AccName FROM vOfferDetail WHERE MOfferStatus = 0 AND AccEName = '$accname';");
+      $query = mysqli_query($conn, "SELECT AccNo FROM vrentacc WHERE AccEName = '$accname';");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -78,10 +78,16 @@
       mysqli_close($conn);
       return $resultArray;
     }
+    $Account = Account();
+    $accNo = 0;
+
+    foreach($Account as $row){
+      $accNo = $row['AccNo'];
+    }
 
     function fetchMR(){
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM monthlyPlace WHERE MPlaceStatus = 1;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM monthlyplace WHERE MPlaceStatus = 1;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -94,7 +100,7 @@
     function Daily($AccNo){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM vDrent WHERE DRentLeft > 0 AND AccNo = $AccNo;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM vdrent WHERE DRentLeft > 0 AND AccNo = $AccNo;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -106,7 +112,7 @@
 
     function fetchDP(){
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM DPayment WHERE DPayStatus = 0;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM dpayment WHERE DPayStatus = 0;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -118,7 +124,7 @@
 
     function fetchMP(){
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM MPayment WHERE MPayStatus = 0;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM mpayment WHERE MPayStatus = 0;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -130,7 +136,7 @@
 
     function fetchAcc(){
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM Account WHERE AccStatus = 0;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM account WHERE AccStatus = 0;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -140,18 +146,13 @@
       return $resultArray;
     }
     $fetchAcc = fetchAcc();
-    $Account = Account();
-    $accNo = 0;
-
-    foreach($Account as $row){
-      $accNo = $row['AccNo'];  echo $accNo;
-    }
       
     if(isset($_GET['acc'])){
       $AccNo = $_GET['acc'];
     }else{
       $AccNo = $accNo;
     }
+    
     $Daily = Daily($AccNo);
     
     $countDR = 0;
@@ -405,7 +406,7 @@
                     ?><sup style="font-size: 15px"> แห่ง</sup>
                   </h3>
 
-                  <p><h5>สถานที่เช่า</h5></p>
+                  <p><h5>สถานที่เช่าของฉัน</h5></p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-home"></i>

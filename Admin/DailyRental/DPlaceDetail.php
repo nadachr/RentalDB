@@ -311,11 +311,11 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none"></h3>
               <div class="col-12">
-                <img src="img/<?php echo $row['DPlaceImg'];?>" class="product-image" alt="Product Image">
+                <img src="http://localhost/rentaldb/personel/dailyrental/img/<?php echo $row['DPlaceImg'];?>" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
                 <?php foreach($fetchDP as $row){} ?>
-                <div class="product-image-thumb active"><img src="img/<?php echo $row['DPlaceImg'];?>" alt="Product Image"></div>
+                <div class="product-image-thumb active"><img src="http://localhost/rentaldb/personel/dailyrental/img/<?php echo $row['DPlaceImg'];?>" alt="Product Image"></div>
               </div>
             </div>
             <div class="col-12 col-sm-6">

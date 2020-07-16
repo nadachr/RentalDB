@@ -33,7 +33,7 @@
     function fetchLoc(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT * FROM Location;");
+      $query = mysqli_query($conn, "SELECT * FROM location;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -46,7 +46,7 @@
     function fetchType(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM MonthlyType;");
+      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM monthlytype;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -382,6 +382,7 @@
                         <th>ชื่อผู้ใช้</th>
                         <th>E-mail</th>
                         <th>เวลาลงทะเบียน</th>
+                        <th>บทบาท</th>
                         <th style="width: 40px">ข้อมูล</th>
                       </tr>
                     </thead>
@@ -395,7 +396,8 @@
                         <td><?php echo $row["LogUser"]; ?></td>
                         <td><?php echo $row["AccTName"]; ?></td>
                         <td><?php echo $row["LogEmail"]; ?></td>
-                        <td><?php echo $row["LogCreate"]; ?></td>
+                        <td><?php echo $row["AccCreate"]; ?></td>
+                        <td><?php echo $row["RoleTName"];?></td>
                         <td align="center">
                           <a class="btn btn-info" data-slide="true" href="userSent.php?show=<?php echo $row['AccNo']?>&accept=<?php echo $row['AccNo']?>" role="button">
                             <i class="nav-icon fas fa-info-circle"></i>
@@ -407,7 +409,7 @@
                   </table>
                   <?php 
                     $perpage = 10;
-                    $sql = "SELECT * FROM MonthlyPlace WHERE MTID = $pType;";
+                    $sql = "SELECT * FROM accrole;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

@@ -13,7 +13,7 @@
 
         $MPlace = $_GET['pedit'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vMPlaceDetail  WHERE MPlaceID = $MPlace");
+        $query = mysqli_query($conn, "SELECT * FROM vmplacedetail  WHERE MPlaceID = $MPlace");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -39,7 +39,7 @@
     function fetchType(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT MTID, MTTName FROM MonthlyType;");
+        $query = mysqli_query($conn, "SELECT MTID, MTTName FROM monthlytype;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -66,7 +66,7 @@
 
         $img = $_FILES['img']['name'];
         
-        $sql = "UPDATE MonthlyPlace SET MPlaceImg = '$img' WHERE MPlaceID = $MPlace";
+        $sql = "UPDATE monthlyplace SET MPlaceImg = '$img' WHERE MPlaceID = $MPlace";
         mysqli_query($conn, $sql);
 
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){
@@ -359,11 +359,11 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none"></h3>
               <div class="col-12">
-                <img src="img/<?php echo $row['MPlaceImg'];?>" class="product-image" alt="Product Image">
+                <img src="http://localhost/rentaldb/personel/monthlyrental/img/<?php echo $row['MPlaceImg'];?>" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
                 <?php foreach($fetchMP as $row){} ?>
-                <div class="product-image-thumb active"><img src="img/<?php echo $row['MPlaceImg'];?>" alt="Product Image"></div>
+                <div class="product-image-thumb active"><img src="http://localhost/rentaldb/personel/monthlyrental/img/<?php echo $row['MPlaceImg'];?>" alt="Product Image"></div>
               </div>
               <form active="" method="post" enctype="multipart/form-data"> 
                 <div class="col-12 product-image-thumbs">

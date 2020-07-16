@@ -12,7 +12,7 @@
 
         $user = $_SESSION['name'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vLogin WHERE AccName = '$user';");
+        $query = mysqli_query($conn, "SELECT * FROM vlogin WHERE AccName = '$user';");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -31,7 +31,7 @@
             $RentID = 0;
           }
        
-        $query = mysqli_query($conn, "SELECT * FROM vDRentwEq WHERE DRentID = $RentID");
+        $query = mysqli_query($conn, "SELECT * FROM vdrentweq WHERE DRentID = $RentID");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -50,7 +50,7 @@
             $RentID = 0;
           }
        
-        $query = mysqli_query($conn, "SELECT * FROM vDRent WHERE DRentID = $RentID");
+        $query = mysqli_query($conn, "SELECT * FROM vdrent WHERE DRentID = $RentID");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){

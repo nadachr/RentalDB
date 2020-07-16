@@ -1,7 +1,7 @@
 <?php
     function fetchT($id){
         include "connrent.php";
-        $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqID = $id");
+        $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqID = $id");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -26,7 +26,7 @@
         $agency = $_POST['agency'];
         $private = $_POST['private'];
 
-        $query = mysqli_query($conn, "INSERT INTO Equipment(EqTName, EqEname, EqAgency, EqPrivate)
+        $query = mysqli_query($conn, "INSERT INTO equipment(EqTName, EqEname, EqAgency, EqPrivate)
                                       VALUES('$equipT', '$equipE', $agency, $private);");
 
         #echo "INSERT INTO type(equipTName, equipEname, TypeSeat, DFID)
@@ -38,7 +38,7 @@
         $p = $_GET['p'];
         $id = $_GET['hid'];
 
-        $query = mysqli_query($conn, "UPDATE Equipment SET EqStatus = 0 WHERE EqID = $id");
+        $query = mysqli_query($conn, "UPDATE equipment SET EqStatus = 0 WHERE EqID = $id");
 
         header("location:Equipment.php?p=$p");
     }
@@ -47,7 +47,7 @@
         $p = $_GET['p'];
         $id = $_GET['push'];
 
-        $query = mysqli_query($conn, "UPDATE Equipment SET EqStatus = 1 WHERE EqID = $id");
+        $query = mysqli_query($conn, "UPDATE equipment SET EqStatus = 1 WHERE EqID = $id");
 
         header("location:Equipment.php?p=$p");
     }
@@ -74,7 +74,7 @@
         $agency = $_POST['agency'];
         $private = $_POST['private'];
 
-        $updateT = mysqli_query($conn, "UPDATE Equipment SET EqTName = '$equipT', EqEname = '$equipE', 
+        $updateT = mysqli_query($conn, "UPDATE equipment SET EqTName = '$equipT', EqEname = '$equipE', 
                                     EqAgency = $agency, EqPrivate = $private WHERE EqID = $id;");
 
         #echo "UPDATE Type SET equipTName = '$equipT', equipEname = '$equipE', 

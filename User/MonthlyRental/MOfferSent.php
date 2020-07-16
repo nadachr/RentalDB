@@ -15,7 +15,7 @@
         $price = $_POST['price'];
         $descrip = $_POST['descrip'];
 
-        $query2 = mysqli_query($conn, "INSERT INTO MonthlyOffer(AccNo, MPlaceID, MOfferPrice, MOfferPurpose) VALUE($accno, $place, $price, '$descrip')");
+        $query2 = mysqli_query($conn, "INSERT INTO monthlyoffer(AccNo, MPlaceID, MOfferPrice, MOfferPurpose) VALUE($accno, $place, $price, '$descrip')");
 
         #echo "INSERT INTO MonthlyOffer(AccNo, MPlaceID, MOfferPrice, MOfferPurpose) VALUE($accno, $place, $price, '$descrip')";
 

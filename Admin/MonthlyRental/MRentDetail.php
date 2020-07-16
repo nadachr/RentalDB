@@ -8,7 +8,7 @@
         function fetchAcc($accno){
             include "connrent.php";
             
-            $query = mysqli_query($conn, "SELECT * FROM vAccDoc WHERE AccNo = $accno;");
+            $query = mysqli_query($conn, "SELECT * FROM vaccdoc WHERE AccNo = $accno;");
             $resultArray = array();
 
             while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -21,7 +21,7 @@
         function fetchOffer($offer){
             include "connrent.php";
             
-            $query = mysqli_query($conn, "SELECT * FROM vOfferDetail WHERE MOfferID = $offer;");
+            $query = mysqli_query($conn, "SELECT * FROM vofferdetail WHERE MOfferID = $offer;");
             $resultArray = array();
 
             while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

@@ -12,7 +12,7 @@
 
         $rent = $_GET['rent'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vDRent  WHERE DRentID = $rent");
+        $query = mysqli_query($conn, "SELECT * FROM vdrent  WHERE DRentID = $rent");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -45,7 +45,7 @@
 
         $rent = $_GET['rent'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vRentAcc WHERE DRentID = $rent");
+        $query = mysqli_query($conn, "SELECT * FROM vrentacc WHERE DRentID = $rent");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

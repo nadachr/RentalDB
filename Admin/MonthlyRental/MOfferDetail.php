@@ -12,7 +12,7 @@
 
         $user = $_SESSION['name'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vLogin WHERE AccName = '$user';");
+        $query = mysqli_query($conn, "SELECT * FROM vlogin WHERE AccName = '$user';");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -26,7 +26,7 @@
         include "connrent.php";
   
         $id = $_SESSION['id'];
-        $query = mysqli_query($conn, "SELECT * FROM vAccount WHERE LogUser = '$id';");
+        $query = mysqli_query($conn, "SELECT * FROM vaccount WHERE LogUser = '$id';");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -45,7 +45,7 @@
             $MPlace = 0;
         }
        
-        $query = mysqli_query($conn, "SELECT * FROM vMPlaceDetail WHERE MPlaceStatus = 1 AND MPlaceID = $MPlace");
+        $query = mysqli_query($conn, "SELECT * FROM vmplacedetail WHERE MPlaceStatus = 1 AND MPlaceID = $MPlace");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -59,7 +59,7 @@
         include "connrent.php";
        
         $LocTName = $_SESSION['LocTName'];
-        $query = mysqli_query($conn, "SELECT * FROM vDPlaceDetail WHERE DPlaceStatus = 1 AND LocTName = '$LocTName'");
+        $query = mysqli_query($conn, "SELECT * FROM vdplacedetail WHERE DPlaceStatus = 1 AND LocTName = '$LocTName'");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -72,7 +72,7 @@
     function fetchDT(){
         include "connrent.php";
        
-        $query = mysqli_query($conn, "SELECT DISTINCT DTID, DTTName FROM vDPlaceDetail WHERE DPlaceStatus = 1");
+        $query = mysqli_query($conn, "SELECT DISTINCT DTID, DTTName FROM vdplacedetail WHERE DPlaceStatus = 1");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -85,7 +85,7 @@
     function fetchEq(){
         include "connrent.php";
        
-        $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqStatus = 1");
+        $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqStatus = 1");
         $resultArray = array();
   
         while($eq = mysqli_fetch_array($query, MYSQLI_ASSOC)){

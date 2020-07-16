@@ -11,8 +11,8 @@
 
 
 
-        $query = mysqli_query($conn, "INSERT INTO DPayment(DRentID, DPayDateTime, DPayTotal, DPayEnvi, BankID) 
-                                      VALUE($RentID, '$Datetime', $Total, '$Envi', $BankID);");
+        $query = mysqli_query($conn, "UPDATE dpayment SET DPayDateTime='$Datetime', DPayTotal=$Total, DPayEnvi='$Envi', BankID=$BankID 
+                                      WHERE DRentID=$RentID");
 
         #echo "INSERT INTO DPayment(DRentID, DPayDateTime, DPayTotal, DPayEnvi, BankID) 
         #VALUE($RentID, $Datetime, $Total, $Envi, $BankID);";

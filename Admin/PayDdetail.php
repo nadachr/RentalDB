@@ -12,7 +12,7 @@
 
         $rent = $_GET['rent'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vDRent  WHERE DRentID = $rent");
+        $query = mysqli_query($conn, "SELECT * FROM vdrent  WHERE DRentID = $rent");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -46,7 +46,7 @@
 
         $rent = $_GET['rent'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vRentAcc WHERE DRentID = $rent");
+        $query = mysqli_query($conn, "SELECT * FROM vrentacc WHERE DRentID = $rent");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -366,7 +366,7 @@
             <div class="col-12 col-sm-6">
                 <h4><i class="fas fa-image"></i> หลักฐานการชำระค่าเช่า</h4>
               <div class="col-12">
-                <img src="DailyRental/img/<?php echo $envi;?>" class="product-image" alt="Product Image">
+                <img src="http://localhost/rentaldb/user/dailyrental/img/<?php echo $envi;?>" class="product-image" alt="Product Image">
               </div>
             </div>
             <div class="col-12 col-sm-6">

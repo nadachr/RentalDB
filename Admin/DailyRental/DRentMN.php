@@ -45,7 +45,7 @@
     function fetchRent(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT * FROM vRentAcc;");
+      $query = mysqli_query($conn, "SELECT * FROM vrentacc;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -427,7 +427,7 @@
                   </table>
                   <?php 
                     $perpage = 10;
-                    $sql = "SELECT * FROM DailyRental;";
+                    $sql = "SELECT * FROM dailyrental;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

@@ -416,7 +416,7 @@
                     <tbody>
                       <?php
                         foreach($searchDP as $row){
-                          if($row['DPayStatus'] == 1){
+                          if($row['DPayStatus'] == 1 & $row['DPayEnvi'] != NULL){
                       ?>
                       <tr>
                         <td><?php $i++; echo $i; ?></td>
@@ -540,7 +540,7 @@
                   </table>
                   <?php 
                     $perpage = 5;
-                    $sql = "SELECT * FROM MPayment;";
+                    $sql = "SELECT * FROM mpayment;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

@@ -21,7 +21,7 @@
         $start = ($p-1) * $perpage;
         #--------------------------
 
-        $query = mysqli_query($conn, "CALL searchAcc($start, $perpage)");
+        $query = mysqli_query($conn, "CALL searchNewUser($start, $perpage)");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -47,7 +47,7 @@
     function fetchType(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM MonthlyType;");
+      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM monthlytype;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -386,7 +386,6 @@
                     <tbody>
                       <?php
                         foreach($searchAcc as $row){
-                          if($row['AccStatus']==0){
                       ?>
                       <tr>
                         <td><?php $i++; echo $i; ?></td>
@@ -400,12 +399,12 @@
                           </a>
                         </td>
                       </tr>
-                      <?php }} ?>
+                      <?php } ?>
                     </tbody>
                   </table>
                   <?php 
                     $perpage = 10;
-                    $sql = "SELECT * FROM Account WHERE AccStatus = 0;";
+                    $sql = "SELECT * FROM account WHERE AccStatus = 0;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

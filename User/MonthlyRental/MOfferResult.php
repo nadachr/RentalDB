@@ -8,7 +8,7 @@
 
       $accname = $_SESSION['name'];
       
-      $query = mysqli_query($conn, "SELECT AccName FROM vLogin WHERE AccName = $accname;");
+      $query = mysqli_query($conn, "SELECT accname FROM vLogin WHERE AccName = $accname;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -26,7 +26,7 @@
         function fetchAcc($accno){
             include "connrent.php";
             
-            $query = mysqli_query($conn, "SELECT * FROM vAccDoc WHERE AccNo = $accno;");
+            $query = mysqli_query($conn, "SELECT * FROM vaccdoc WHERE AccNo = $accno;");
             $resultArray = array();
 
             while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -39,7 +39,7 @@
         function fetchOffer($accno){
             include "connrent.php";
             
-            $query = mysqli_query($conn, "SELECT * FROM vOfferDetail WHERE AccNo = $accno;");
+            $query = mysqli_query($conn, "SELECT * FROM vofferdetail WHERE AccNo = $accno;");
             $resultArray = array();
 
             while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -52,7 +52,7 @@
         function fetchRent($offer){
           include "connrent.php";
           
-          $query = mysqli_query($conn, "SELECT * FROM MonthlyRental WHERE MOfferID = $offer;");
+          $query = mysqli_query($conn, "SELECT * FROM monthlyrental WHERE MOfferID = $offer;");
           $resultArray = array();
 
           while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

@@ -57,7 +57,7 @@
     function fetchType(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT DTID, DTTName FROM DailyType;");
+      $query = mysqli_query($conn, "SELECT DTID, DTTName FROM dailytype;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -350,7 +350,7 @@
 
                   <?php 
                     $perpage = 10;
-                    $sql = "SELECT * FROM DailyPlace WHERE DPlaceStatus = 1 AND DTID = $pType;";
+                    $sql = "SELECT * FROM dailyplace WHERE DPlaceStatus = 1 AND DTID = $pType;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

@@ -12,7 +12,7 @@
 
         $Equip = $_GET['eedit'];
 
-        $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqID = $Equip");
+        $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqID = $Equip");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -39,7 +39,7 @@
 
         $img = $_FILES['img']['name'];
         
-        $sql = "UPDATE Equipment SET EqImg = '$img' WHERE EqID = $Equip";
+        $sql = "UPDATE equipment SET EqImg = '$img' WHERE EqID = $Equip";
         mysqli_query($conn, $sql);
 
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){

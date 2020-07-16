@@ -43,7 +43,7 @@
     function fetchLoc(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT * FROM Location;");
+      $query = mysqli_query($conn, "SELECT * FROM location;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -56,7 +56,7 @@
     function fetchType(){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM MonthlyType;");
+      $query = mysqli_query($conn, "SELECT MTID, MTTName FROM monthlytype;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){

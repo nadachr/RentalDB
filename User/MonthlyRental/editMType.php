@@ -1,7 +1,7 @@
 <?php
     function fetchT($id){
         include "connrent.php";
-        $query = mysqli_query($conn, "SELECT * FROM MonthlyType WHERE MTID = $id");
+        $query = mysqli_query($conn, "SELECT * FROM monthlytype WHERE MTID = $id");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -28,7 +28,7 @@
         $offterm = $_POST['offterm'];
         $maintain = $_POST['maintain'];
 
-        $query = mysqli_query($conn, "INSERT INTO MonthlyType(MTTName, MTEName, MTInTerm, MTOffTerm, MTmaintain)
+        $query = mysqli_query($conn, "INSERT INTO monthlytype(MTTName, MTEName, MTInTerm, MTOffTerm, MTmaintain)
                                       VALUES('$typeT', '$typeE', $interm, $offterm, $maintain);");
 
         #echo "INSERT INTO type(TypeTName, TypeEname, Typeinterm, DFID)
@@ -40,7 +40,7 @@
         $p = $_GET['p'];
         $id = $_GET['hid'];
 
-        $query = mysqli_query($conn, "UPDATE MonthlyType SET MTStatus = 0 WHERE MTID = $id");
+        $query = mysqli_query($conn, "UPDATE monthlytype SET MTStatus = 0 WHERE MTID = $id");
 
         header("location:MonthlyType.php?p=$p");
     }
@@ -49,7 +49,7 @@
         $p = $_GET['p'];
         $id = $_GET['push'];
 
-        $query = mysqli_query($conn, "UPDATE MonthlyType SET MTStatus = 1 WHERE MTID = $id");
+        $query = mysqli_query($conn, "UPDATE monthlytype SET MTStatus = 1 WHERE MTID = $id");
 
         header("location:MonthlyType.php?p=$p");
     }
@@ -77,7 +77,7 @@
         $offterm = $_POST['offterm'];
         $maintain = $_POST['maintain'];
 
-        $updateT = mysqli_query($conn, "UPDATE MonthlyType SET MTTName = '$typeT', MTEname = '$typeE', 
+        $updateT = mysqli_query($conn, "UPDATE monthlytype SET MTTName = '$typeT', MTEname = '$typeE', 
                                     MTInTerm = '$interm', MTOffTerm = $offterm, MTmaintain = $maintain WHERE MTID = $id;");
 
         #echo "UPDATE Type SET TypeTName = '$typeT', TypeEname = '$typeE', 

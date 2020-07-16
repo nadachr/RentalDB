@@ -38,7 +38,7 @@
         $postcode = stripslashes($_POST['postcode']);
         $postcode = mysqli_escape_string($conn, $postcode);
 
-        $pushAcc = "INSERT INTO Account(LogID, AccID, PreID, AccFName, AccLName, AccEngFName, AccEngLName, AccBirthdate, AccPhone, AccInst, AccAddress, AccDistrict, AccProvince, AccCity, AccPostcode)
+        $pushAcc = "INSERT INTO account(LogID, AccID, PreID, AccFName, AccLName, AccEngFName, AccEngLName, AccBirthdate, AccPhone, AccInst, AccAddress, AccDistrict, AccProvince, AccCity, AccPostcode)
             VALUES($logid, '$accid', $prefix, '$firstTname', '$lastTname', '$firstEname', '$lastEname','$bdate', '$tel','$inst','$addr','$dist','$prov','$city','$postcode');";
         $result = mysqli_query($conn, $pushAcc);
 

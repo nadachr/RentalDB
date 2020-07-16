@@ -12,7 +12,7 @@
 
         $Equip = $_GET['show'];
 
-        $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqID = $Equip");
+        $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqID = $Equip");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

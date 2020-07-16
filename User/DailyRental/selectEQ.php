@@ -8,7 +8,7 @@
 
         $val_M = mysqli_real_escape_string($conn, $val);
 
-        $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqID = $val_M");
+        $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqID = $val_M");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){

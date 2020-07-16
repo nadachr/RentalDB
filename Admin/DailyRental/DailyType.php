@@ -61,7 +61,7 @@
       $start = (($p-1) * $perpage);
       #--------------------------
 
-      $query = mysqli_query($conn, "SELECT * FROM DailyType LIMIT $start,$perpage;");
+      $query = mysqli_query($conn, "SELECT * FROM dailytype LIMIT $start,$perpage;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -402,7 +402,7 @@
 
                   <?php 
                     $perpage = 10;
-                    $sql = "SELECT * FROM DailyType;";
+                    $sql = "SELECT * FROM dailytype;";
                     $query2 = mysqli_query($conn, $sql);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil(($total_record / $perpage));

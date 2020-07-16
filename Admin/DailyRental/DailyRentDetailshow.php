@@ -17,7 +17,7 @@
 
         $user = $_SESSION['name'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vLogin WHERE AccName = '$user';");
+        $query = mysqli_query($conn, "SELECT * FROM vlogin WHERE AccName = '$user';");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -30,7 +30,7 @@
     function fetchAcc($AccNo){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT * FROM vAccount WHERE AccNo = $AccNo;");
+      $query = mysqli_query($conn, "SELECT * FROM vaccount WHERE AccNo = $AccNo;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -49,7 +49,7 @@
           $RentID = 0;
       }
 
-      $query = mysqli_query($conn, "SELECT * FROM vRentAcc WHERE DRentID = $RentID;");
+      $query = mysqli_query($conn, "SELECT * FROM vrentAcc WHERE DRentID = $RentID;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -68,7 +68,7 @@
           $RentID = 0;
       }
     
-      $query = mysqli_query($conn, "SELECT * FROM vDRent WHERE DRentID = $RentID");
+      $query = mysqli_query($conn, "SELECT * FROM vdrent WHERE DRentID = $RentID");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -81,7 +81,7 @@
     function fetchPlace($DPlace){
         include "connrent.php";
        
-        $query = mysqli_query($conn, "SELECT * FROM vDPlaceDetail WHERE DPlaceStatus = 1 AND DPlaceID = $DPlace");
+        $query = mysqli_query($conn, "SELECT * FROM vdplacedetail WHERE DPlaceStatus = 1 AND DPlaceID = $DPlace");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -94,7 +94,7 @@
     function fetchEq($EqID){
         include "connrent.php";
        
-        $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqStatus = 1 AND EqID = $EqID");
+        $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqStatus = 1 AND EqID = $EqID");
         $resultArray = array();
   
         while($eq = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -148,7 +148,7 @@
   if(isset($_GET['rent'])){
     $RentID = $_GET['rent'];
 
-    $query = mysqli_query($conn, "UPDATE DailyRental SET DRentStatus = 1 WHERE DRentID = $RentID;");
+    $query = mysqli_query($conn, "UPDATE dailyrental SET DRentStatus = 1 WHERE DRentID = $RentID;");
   
 
     function fetchName(){
@@ -156,7 +156,7 @@
 
         $user = $_SESSION['name'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vLogin WHERE AccName = '$user';");
+        $query = mysqli_query($conn, "SELECT * FROM vlogin WHERE AccName = '$user';");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -169,7 +169,7 @@
     function fetchAcc($AccNo){
       include "connrent.php";
 
-      $query = mysqli_query($conn, "SELECT * FROM vAccount WHERE AccNo = $AccNo;");
+      $query = mysqli_query($conn, "SELECT * FROM vaccount WHERE AccNo = $AccNo;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -188,7 +188,7 @@
           $RentID = 0;
       }
 
-      $query = mysqli_query($conn, "SELECT * FROM vRentAcc WHERE DRentID = $RentID;");
+      $query = mysqli_query($conn, "SELECT * FROM vrentacc WHERE DRentID = $RentID;");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -207,7 +207,7 @@
           $RentID = 0;
       }
     
-      $query = mysqli_query($conn, "SELECT * FROM vDRent WHERE DRentID = $RentID");
+      $query = mysqli_query($conn, "SELECT * FROM vdrent WHERE DRentID = $RentID");
       $resultArray = array();
 
       while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -220,7 +220,7 @@
     function fetchPlace($DPlace){
         include "connrent.php";
        
-        $query = mysqli_query($conn, "SELECT * FROM vDPlaceDetail WHERE DPlaceStatus = 1 AND DPlaceID = $DPlace");
+        $query = mysqli_query($conn, "SELECT * FROM vdplacedetail WHERE DPlaceStatus = 1 AND DPlaceID = $DPlace");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -256,7 +256,7 @@
         function fetchEq($EqID){
           include "connrent.php";
          
-          $query = mysqli_query($conn, "SELECT * FROM Equipment WHERE EqStatus = 1 AND EqID = $EqID");
+          $query = mysqli_query($conn, "SELECT * FROM equipment WHERE EqStatus = 1 AND EqID = $EqID");
           $resultArray = array();
     
           while($eq = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -698,7 +698,7 @@
                                       <div class="form-group col-9">
                                         <div class="col-12">
                                           <?php foreach($fetchPlace as $result){ ?>
-                                          <img src="img/<?php echo $result['DPlaceImg'];?>" class="product-image" alt="Product Image">
+                                          <img src="http://localhost/rentaldb/personel/dailyrental/img/<?php echo $result['DPlaceImg'];?>" class="product-image" alt="Product Image">
                                           <?php } ?>
                                         </div>
                                       </div>

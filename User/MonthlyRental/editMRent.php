@@ -11,7 +11,7 @@
         $p = $_GET['p'];
         $id = $_GET['offer'];
 
-        $query = mysqli_query($conn, "UPDATE MonthlyOffer SET MOfferStatus = 1 WHERE MOfferID = $id");
+        $query = mysqli_query($conn, "UPDATE monthlyoffer SET MOfferStatus = 1 WHERE MOfferID = $id");
         header("location:MOfferRent.php?p=$p");
         #echo "UPDATE MonthlyOffer SET MOfferStatus = 1 WHERE MOfferID = $id";
     }
@@ -21,7 +21,7 @@
         $show = $_GET['show'];
         $id = $_GET['placeshow'];
 
-        $query = mysqli_query($conn, "UPDATE MonthlyPlace SET MPlaceStatus = 1 WHERE MPlaceID = $id");
+        $query = mysqli_query($conn, "UPDATE monthlyplace SET MPlaceStatus = 1 WHERE MPlaceID = $id");
         header("location:MonthlyPlace.php?p=$p&show=$show");
         #echo $page;
     }
@@ -32,7 +32,7 @@
         $placeE = $_POST['placeE'];
         $location = $_POST['location'];
         $MTID = $_POST['placeType'];
-        $query = mysqli_query($conn, "INSERT INTO MonthlyPlace(MPlaceEName, MPlaceTName, MTID, LocID)
+        $query = mysqli_query($conn, "INSERT INTO monthlyplace(MPlaceEName, MPlaceTName, MTID, LocID)
                                       VALUES('$placeE', '$placeT', $MTID, $location);");
 
         #echo "INSERT INTO MonthlyPlace(MPlaceNo, MPlaceEname, MPlaceTName, MTID, LocID)
@@ -48,7 +48,7 @@
         $location = $_POST['location'];
         $MTID = $_POST['placeType'];
 
-        $updateT = mysqli_query($conn, "UPDATE MonthlyPlace SET MPlaceTName = '$placeT', MPlaceEName = '$placeE', 
+        $updateT = mysqli_query($conn, "UPDATE monthlyplace SET MPlaceTName = '$placeT', MPlaceEName = '$placeE', 
                                     MTID = $MTID, LocID = $location WHERE MPlaceID = $id;");
 
         #echo "UPDATE MonthlyPlace SET MPlaceTName = '$placeT', MPlaceEName = '$placeE', 

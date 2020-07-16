@@ -25,7 +25,7 @@
     function fetchLoc(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT * FROM Location;");
+        $query = mysqli_query($conn, "SELECT * FROM location;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -38,7 +38,7 @@
     function fetchType(){
         include "connrent.php";
   
-        $query = mysqli_query($conn, "SELECT DTID, DTTName FROM DailyType;");
+        $query = mysqli_query($conn, "SELECT DTID, DTTName FROM dailytype;");
         $resultArray = array();
   
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -66,7 +66,7 @@
 
         $img = $_FILES['img']['name'];
         
-        $sql = "UPDATE DailyPlace SET DPlaceImg = '$img' WHERE DPlaceID = $DPlace";
+        $sql = "UPDATE dailyplace SET DPlaceImg = '$img' WHERE DPlaceID = $DPlace";
         mysqli_query($conn, $sql);
 
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){
@@ -360,10 +360,10 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none"></h3>
               <div class="col-12">
-                <img src="img/<?php echo $row['DPlaceImg'];?>" class="product-image" alt="Product Image">
+                <img src="http://localhost/rentaldb/personel/dailyrental/img/<?php echo $row['DPlaceImg'];?>" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
-                <div class="product-image-thumb active"><img src="img/<?php echo $row['DPlaceImg'];?>" alt="Product Image"></div>
+                <div class="product-image-thumb active"><img src="http://localhost/rentaldb/personel/dailyrental/img/<?php echo $row['DPlaceImg'];?>" alt="Product Image"></div>
               </div>
               <form active="" method="post" enctype="multipart/form-data"> 
                 <div class="col-12 product-image-thumbs">

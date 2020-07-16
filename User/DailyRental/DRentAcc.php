@@ -17,7 +17,7 @@
       $accname = '';
     }
     include "connrent.php";
-    $query = mysqli_query($conn, "SELECT AccNo, AccName FROM vOfferDetail WHERE MOfferStatus = 0 AND AccEName = '$accname';");
+    $query = mysqli_query($conn, "SELECT AccNo, AccName FROM vofferdetail WHERE MOfferStatus = 0 AND AccEName = '$accname';");
     $resultArray = array();
 
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -64,7 +64,7 @@
       function fetchRent($AccNo){
         include "connrent.php";
 
-        $query = mysqli_query($conn, "SELECT * FROM vDRent WHERE AccNo = $AccNo;");
+        $query = mysqli_query($conn, "SELECT * FROM vdrent WHERE AccNo = $AccNo;");
         $resultArray = array();
 
         while($result = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -353,7 +353,7 @@
                       </tr>
                       <?php }else if(($row['DRentBe']>0)&($row['DRentLeft']>0)){ ?>
                       <tr>
-                        <td>3</td>
+                        <td><?php $i++; echo $i; ?></td>
                         <td><?php echo $row["DRentID"]; ?></td>
                         <td><?php echo $row["DPlaceTName"]; ?></td>
                         <td><?php echo $row["LocTName"]; ?></td>
@@ -368,7 +368,7 @@
                       </tr>
                       <?php }else{ ?>
                         <tr>
-                        <td>3</td>
+                        <td><?php $i++; echo $i; ?></td>
                         <td><?php echo $row["DRentID"]; ?></td>
                         <td><?php echo $row["DPlaceTName"]; ?></td>
                         <td><?php echo $row["LocTName"]; ?></td>

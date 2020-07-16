@@ -71,7 +71,7 @@
 
     function fetchDP(){
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM DPayment WHERE DPayStatus = 0;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM DPayment WHERE DPayEnvi is NOT NULL AND DPayStatus = 0;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -83,7 +83,7 @@
 
     function fetchMP(){
       include "connrent.php";
-      $query = mysqli_query($conn, "SELECT COUNT(*) FROM MPayment WHERE MPayStatus = 0;");
+      $query = mysqli_query($conn, "SELECT COUNT(*) FROM MPayment WHERE MPayEnvi is NOT NULL AND MPayStatus = 0;");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -108,6 +108,7 @@
     $fetchDR = fetchDR();
     foreach($fetchDR as $row){
       $countRent = $row["COUNT(*)"];
+      $_SESSION['countRent'] = $countRent;
     }
     $fetchMR = fetchMR();
     $fetchDP = fetchDP();
@@ -123,6 +124,7 @@
     $fetchAcc = fetchAcc();
 
     $countPay = $countDP + $countMP;
+    $_SESSION['countPay'] = $countPay;
   ?>
   <!---------END DATABASE------------>
 
@@ -273,7 +275,7 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>ข้อเสนอราคา
                       <?php foreach($fetchMR as $row){
-                      if ($row["COUNT(*)"]){ ?>
+                      if ($row["COUNT(*)"]){  $_SESSION['countMR'] = $row['COUNT(*)'];?>
                       <span class="badge badge-info right">
                       <?php echo $row["COUNT(*)"]; ?>  
                       </span> <?php }}?>
@@ -339,7 +341,7 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>ผู้ลงทะเบียนใหม่ 
                     <?php foreach($fetchAcc as $row){
-                      if ($row["COUNT(*)"]){ ?>
+                      if ($row["COUNT(*)"]){ $_SESSION['countAcc'] = $row['COUNT(*)']; ?>
                       <span class="badge badge-info right">
                       <?php echo $row["COUNT(*)"]; ?>  
                       </span> <?php }}?>

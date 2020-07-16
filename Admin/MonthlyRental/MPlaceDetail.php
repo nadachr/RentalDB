@@ -12,7 +12,7 @@
 
         $MPlace = $_GET['show'];
 
-        $query = mysqli_query($conn, "SELECT * FROM vMPlaceDetail  WHERE MPlaceID = $MPlace");
+        $query = mysqli_query($conn, "SELECT * FROM vmplacedetail  WHERE MPlaceID = $MPlace");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

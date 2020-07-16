@@ -1,7 +1,7 @@
 <?php
     function fetchT($id){
         include "connrent.php";
-        $query = mysqli_query($conn, "SELECT * FROM DailyType WHERE DTID = $id");
+        $query = mysqli_query($conn, "SELECT * FROM dailyType WHERE DTID = $id");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -28,7 +28,7 @@
         $agency = $_POST['agency'];
         $private = $_POST['private'];
 
-        $query = mysqli_query($conn, "INSERT INTO DailyType(DTTName, DTEname, DTSeat, DTAgency, DTPrivate)
+        $query = mysqli_query($conn, "INSERT INTO dailytype(DTTName, DTEname, DTSeat, DTAgency, DTPrivate)
                                       VALUES('$typeT', '$typeE', '$seat', $agency, $private);");
 
         #echo "INSERT INTO type(TypeTName, TypeEname, TypeSeat, DFID)
@@ -40,7 +40,7 @@
         $p = $_GET['p'];
         $id = $_GET['hid'];
 
-        $query = mysqli_query($conn, "UPDATE DailyType SET DTStatus = 0 WHERE DTID = $id");
+        $query = mysqli_query($conn, "UPDATE dailytype SET DTStatus = 0 WHERE DTID = $id");
 
         header("location:DailyType.php?p=$p");
     }
@@ -49,7 +49,7 @@
         $p = $_GET['p'];
         $id = $_GET['push'];
 
-        $query = mysqli_query($conn, "UPDATE DailyType SET DTStatus = 1 WHERE DTID = $id");
+        $query = mysqli_query($conn, "UPDATE dailytype SET DTStatus = 1 WHERE DTID = $id");
 
         header("location:DailyType.php?p=$p");
     }
@@ -77,7 +77,7 @@
         $agency = $_POST['agency'];
         $private = $_POST['private'];
 
-        $updateT = mysqli_query($conn, "UPDATE DailyType SET DTTName = '$typeT', DTEname = '$typeE', 
+        $updateT = mysqli_query($conn, "UPDATE dailytype SET DTTName = '$typeT', DTEname = '$typeE', 
                                     DTSeat = '$seat', DTAgency = $agency, DTPrivate = $private WHERE DTID = $id;");
 
         #echo "UPDATE Type SET TypeTName = '$typeT', TypeEname = '$typeE', 

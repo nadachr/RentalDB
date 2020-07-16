@@ -12,7 +12,7 @@
 
       $rent = $_GET['rent'];
 
-      $query = mysqli_query($conn, "SELECT * FROM MonthlyRental WHERE MRentID = $rent");
+      $query = mysqli_query($conn, "SELECT * FROM monthlyrental WHERE MRentID = $rent");
       $resultArray = array();
 
       while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -25,7 +25,7 @@
     function fetchMP($offerid){
         include "connrent.php";
 
-        $query = mysqli_query($conn, "SELECT * FROM vOfferDetail  WHERE MOfferID = $offerid");
+        $query = mysqli_query($conn, "SELECT * FROM vofferdetail  WHERE MOfferID = $offerid");
         $resultArray = array();
 
         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){

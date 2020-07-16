@@ -18,8 +18,8 @@
             $msg = "There was a problem uploading image";
         }
 
-        $query = mysqli_query($conn, "INSERT INTO DPayment(DRentID, DPayDateTime, DPayTotal, DPayEnvi, BankID) 
-                                      VALUE($RentID, '$Datetime', $Total, '$img', $BankID);");
+        $query = mysqli_query($conn, "UPDATE dpayment SET DPayDateTime='$Datetime', DPayTotal=$Total, DPayEnvi = '$img', BankID= $BankID 
+                                      WHERE DRentID = $RentID");
 
         #echo "INSERT INTO DPayment(DRentID, DPayDateTime, DPayTotal, DPayEnvi, BankID) 
         #VALUE($RentID, $Datetime, $Total, $Envi, $BankID);";
